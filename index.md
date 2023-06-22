@@ -3,7 +3,7 @@ Replace this text with a brief description (2-3 sentences) of your project. This
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Viraj V | Dougherty Valley | Mechanical Engineering | Incoming Junior
+| Viraj V | Dougherty Valley High School | Mechanical Engineering | Incoming Junior
 
 ![Headstone Image](IMG_3642.thumbnail.jpg)
   
