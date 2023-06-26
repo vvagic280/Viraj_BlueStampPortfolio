@@ -1,5 +1,5 @@
 # Remote Controlled Car
-Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
+Discover the remarkable world of my robot-controlled car, brought to life with an Arduino and a wide combination of components. From overcoming technical challenges to the construction of the 'Smart Robot Car V4.0' kit by Elegoo, this project has been an exhilarating adventure. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
