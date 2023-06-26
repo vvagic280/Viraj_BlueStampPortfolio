@@ -28,9 +28,7 @@ Since my previous milestone, I have worked on technical aspects of my project, i
 # First Milestone
 My project is the RC Car and this is my first milestone. So far, I have completed piecing together the base of my project and have the overall hardware for the wires all plugged into the arduino UNO board. Some key components for this project include an ultrasonic sensor located in the front of the car for obstacle avoidance features, four motors for the tires to run the car, and an arduino UNO board to for plugging in the wires for all the components, a reciever; later used for the remote control, and a USB input to later integrate code into my project. A challenge I faced was not being able to plug in the camera; located on the top of the car, into the serial port on the arduino UNO because unfortunately with this chip I cannot plug both the camera, and the USB for uploading code, at the same time. My plan to complete this project is to get the motors up and running with the given IR (Infarred Remote) Control from the kit and get the ultrasonic sensors to work and avoid any objects in its path.  
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lkt41rrJCsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
