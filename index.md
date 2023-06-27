@@ -8,7 +8,7 @@ Discover the remarkable adventure of my robot-controlled car, brought to life wi
 ![Headstone Image](IMG_3642.thumbnail.jpg)
   
 # Final Milestone
-For your final milestone, explain the outcome of your project. Key details to include are:
+<!--For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
@@ -17,7 +17,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+-->
 # Second Milestone
 Since my previous milestone, I have worked on technical aspects of my project, including software and code integrated into the RC Car. I was able to upload code for the IR Remote to work with my car, and get it to move in the direction I want it to using the remote. I did this by having the car move in the direction I want it to by clicking the control once and letting it keep moving with no delay until I command it to either stop in place, or click a different control to move in a different direction. This way, I have the ease of not needing to constantly hold down the button and just let it continue to move in the direction I want it to until I click the "stop" command button or a different direction. A challenge I faced was the first code I found online didn't work like I wanted it to and just kept repeating the "stop" command repeatedly even when I didn't click any controls on the remote. I overcame this by editing some of the code and integrating some code from my previous upload of the IR Remote and got it to respond to the remote and get the motors running.
 
