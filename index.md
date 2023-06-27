@@ -50,8 +50,7 @@ void loop() {
 # Bill of Materials
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Elegoo Smart Robot Car | Project Kit for RC Car | $79.99 | <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ"> Amazon Link </a> |
-|:--:|:--:|:--:|:--:|
+| Elegoo Smart Robot Car | Project Kit for RC Car | $79.99 | <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ"> Amazon Link </a>
 
 # Outside Resources
 - [Example Code For IR Remote](https://dronebotworkshop.com/elegoo-smart-robot-car-part-2/#Infrared_Remote_Car_Control)
