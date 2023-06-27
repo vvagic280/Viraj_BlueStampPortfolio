@@ -52,7 +52,7 @@ void loop() {
 |:--:|:--:|:--:|:--:|
 | Elegoo Smart Robot Car | Project Kit for RC Car | $79.99 | <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ"> Amazon Link </a> |
 
-# Resources
+# Outside Resources
 - [Example Code For IR Remote](https://dronebotworkshop.com/elegoo-smart-robot-car-part-2/#Infrared_Remote_Car_Control)
 - [SunFounder Ultrasonic Module](https://docs.sunfounder.com/projects/3in1-kit/en/latest/car_project/car_ultrasonic.html)
 - [Sparkfun Motor Test Run/Library](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-the-arduino-101genuino-101-board/experiment-12-using-the-motor-driver)
