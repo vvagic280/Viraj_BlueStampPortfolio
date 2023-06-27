@@ -7,8 +7,8 @@ Discover the remarkable adventure of my robot-controlled car, brought to life wi
 
 ![Headstone Image](IMG_3642.thumbnail.jpg)
   
-# Final Milestone
-<!--For your final milestone, explain the outcome of your project. Key details to include are:
+<!--# Final Milestone
+For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
