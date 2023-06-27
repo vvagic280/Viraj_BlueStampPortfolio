@@ -1,5 +1,5 @@
 # Infrared Remote Controlled Car with Ultrasonic Sensor
-Discover the remarkable world of my robot-controlled car, brought to life with an Arduino and a wide combination of components. From overcoming technical challenges to the construction of the 'Smart Robot Car V4.0' kit by Elegoo, this project has been an exhilarating adventure. 
+Discover the remarkable adventure of my robot-controlled car, brought to life with an Arduino and a wide combination of components. From overcoming technical challenges to the construction of the robot, this project has been an insightful experience. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
