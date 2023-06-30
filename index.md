@@ -51,16 +51,15 @@ const int trigPin = 13;
 const int echoPin = 12;
 
 
-// float readSensorData() {
-//   digitalWrite(trigPin, LOW);
-//   delayMicroseconds(2);
-//   digitalWrite(trigPin, HIGH);
-//   delayMicroseconds(10);
-//   digitalWrite(trigPin, LOW);
-//   float distance = pulseIn(echoPin, HIGH) / 58.00; //Equivalent to (340m/s*1us)/2
-//   return distance;
-// }
-
+float readSensorData() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  float distance = pulseIn(echoPin, HIGH) / 58.00; //Equivalent to (340m/s*1us)/2
+  return distance;
+}
 
 ////////// IR REMOTE CODES //////////
 #define F 16736925	// FORWARD
@@ -182,40 +181,63 @@ void setup() {
   pinMode(trigPin, OUTPUT);
 }
 
- 
+bool drive_en = true;
+
 void loop() {
+  //Serial.println(drive_en);
+  if(readSensorData() < 10){
+    drive_en = false;
+    stop();
+    Serial.println("too close!"); 
+    }
+  else{
+    drive_en = true;
+  }
   if (irrecv.decode(&results)){ 
     preMillis = millis();
     val = results.value;
-    Serial.println(val);
+   // Serial.println(val);
     irrecv.resume();
     switch(val){
       case F: 
-      case UNKNOWN_F: forward();
-      // if (readSensorData() > 100){
-      //   forward(); }
-      // else {
-      //   stop();
-      // }
-      break;
-      case B: 
-      case UNKNOWN_B: back(); break;
-      case L: 
-      case UNKNOWN_L: left(); break;
-      case R: 
-      case UNKNOWN_R: right();break;
-      case S: 
-      case UNKNOWN_S: stop(); break;
+      case UNKNOWN_F:
+        if(drive_en = true){
+          forward();
+        }
+        break;
+      case B:
+      case UNKNOWN_B:
+        if(readSensorData() < 10){
+          back();
+          delay(500);
+          }
+        else{
+          back();
+        }
+        break;
+      case L:
+      case UNKNOWN_L:
+        if(drive_en = true){
+          left();
+        }
+        break;
+      case R:
+      case UNKNOWN_R:
+        if(drive_en = true){
+          right();
+        }
+        break;
+      case S:
+      case UNKNOWN_S:
+        stop();
+        break;
       default: break;
-
-
     }
-  
   }
-  delay(500);
+//  delay(10);
 
-//  float distance = readSensorData(); -------------------
-//  Serial.println(distance); -----------------
+  float distance = readSensorData();
+  Serial.println(distance);
   // else{
   //   if(millis() - preMillis > 500){
   //     stop();
