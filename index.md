@@ -32,19 +32,197 @@ My project is the RC Car and this is my first milestone. So far, I have complete
 ![Headstone Image](Funky_Habbi.jpg)
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
+#include <IRremote.h>
+#include <SparkFun_TB6612.h>
+#include <Servo.h>
+
+Servo myservo;
+
+int pos = 0;  
+
+const int in1 = 5;
+const int in2 = 6;
+const int in3 = 9;
+const int in4 = 10;
+
+const int trigPin = 13;
+const int echoPin = 12;
+
+
+// float readSensorData() {
+//   digitalWrite(trigPin, LOW);
+//   delayMicroseconds(2);
+//   digitalWrite(trigPin, HIGH);
+//   delayMicroseconds(10);
+//   digitalWrite(trigPin, LOW);
+//   float distance = pulseIn(echoPin, HIGH) / 58.00; //Equivalent to (340m/s*1us)/2
+//   return distance;
+// }
+
+
+////////// IR REMOTE CODES //////////
+#define F 16736925	// FORWARD
+#define B 16754775	// BACK
+#define L 16720605	// LEFT
+#define R 16761405	// RIGHT
+#define S 16712445	// STOP
+#define UNKNOWN_F 5316027		  // FORWARD
+#define UNKNOWN_B 2747854299	// BACK
+#define UNKNOWN_L 1386468383	// LEFT
+#define UNKNOWN_R 553536955		// RIGHT
+#define UNKNOWN_S 3622325019	// STOP
+ 
+#define RECV_PIN  9
+ 
+/*define channel enable output pins*/
+#define ENA 5	  // Left  wheel speed
+#define ENB 6	  // Right wheel speed
+/*define logic control output pins*/
+#define IN1 7	  // Left  wheel forward
+#define IN2 8	  // Left  wheel reverse
+#define IN3 9	  // Right wheel reverse
+#define IN4 11	// Right wheel forward
+#define carSpeed 150	// initial speed of car >=0 to <=255
+ 
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+unsigned long val;
+unsigned long preMillis;
+
+const int ledPin = 13;
+int speed = 150;
+
+#define AIN1 7
+#define BIN1 8
+#define AIN2 1
+#define BIN2 2
+#define PWMA 5
+#define PWMB 6
+#define STBY 3
+
+const int offsetA = 1;
+const int offsetB = 1;
+
+Motor motor1 = Motor(AIN1, AIN2, PWMA, offsetA, STBY);
+Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
+ 
+/**
+ * BEGIN DEFINE FUNCTIONS
+ */
+ 
+ void forward(){ 
+  digitalWrite(ENA,HIGH);
+  digitalWrite(ENB,HIGH);
+  digitalWrite(IN1,HIGH);
+  digitalWrite(IN2,LOW);
+  digitalWrite(IN3,LOW);
+  digitalWrite(IN4,HIGH);
+  forward(motor1, motor2, 150);
+  myservo.write(90);
+  // delay(500);
+  // brake(motor1, motor2);
+  Serial.println("go forward!");
+}
+void back(){
+  digitalWrite(ENA,HIGH);
+  digitalWrite(ENB,HIGH);
+  digitalWrite(IN1,LOW);
+  digitalWrite(IN2,HIGH);
+  digitalWrite(IN3,HIGH);
+  digitalWrite(IN4,LOW);
+  back(motor1, motor2, -150);
+  myservo.write(90);
+  Serial.println("go back!");
+}
+void left(){
+  analogWrite(ENA,carSpeed);
+  analogWrite(ENB,carSpeed);
+  digitalWrite(IN1,LOW);
+  digitalWrite(IN2,HIGH);
+  digitalWrite(IN3,LOW);
+  digitalWrite(IN4,HIGH); 
+  right(motor1, motor2, 100);
+  myservo.write(180);
+  Serial.println("go left!");
+}
+void right(){
+  analogWrite(ENA,carSpeed);
+  analogWrite(ENB,carSpeed);
+  digitalWrite(IN1,HIGH);
+  digitalWrite(IN2,LOW);
+  digitalWrite(IN3,HIGH);
+  digitalWrite(IN4,LOW);
+  left(motor1, motor2, 100);
+  myservo.write(0);
+  Serial.println("go right!");
+}
+
+void stop() {
+  digitalWrite(ENA, LOW);
+  digitalWrite(ENB, LOW);
+  Serial.println("STOP!");
+}
+ 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  pinMode(IN1,OUTPUT);
+  pinMode(IN2,OUTPUT);
+  pinMode(IN3,OUTPUT);
+  pinMode(IN4,OUTPUT);
+  pinMode(ENA,OUTPUT);
+  pinMode(ENB,OUTPUT);
+  stop();
+  irrecv.enableIRIn();  
+
+   //ultrasonic
+  myservo.attach(10); 
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
 }
 
+ 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if (irrecv.decode(&results)){ 
+    preMillis = millis();
+    val = results.value;
+    Serial.println(val);
+    irrecv.resume();
+    switch(val){
+      case F: 
+      case UNKNOWN_F: forward();
+      // if (readSensorData() > 100){
+      //   forward(); }
+      // else {
+      //   stop();
+      // }
+      break;
+      case B: 
+      case UNKNOWN_B: back(); break;
+      case L: 
+      case UNKNOWN_L: left(); break;
+      case R: 
+      case UNKNOWN_R: right();break;
+      case S: 
+      case UNKNOWN_S: stop(); break;
+      default: break;
 
-}
+
+    }
+  
+  }
+  delay(500);
+
+//  float distance = readSensorData(); -------------------
+//  Serial.println(distance); -----------------
+  // else{
+  //   if(millis() - preMillis > 500){
+  //     stop();
+  //     preMillis = millis();
+  //   }
+  // }
+} 
 ```
 
 # Bill of Materials
